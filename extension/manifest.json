@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Article Quiz",
+  "version": "1.0.0",
+  "description": "Quiz yourself on the article in the current tab. Questions come from Claude through your own Anthropic API key.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Article Quiz",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://api.anthropic.com/*"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "article-quiz@quiz-extension.local",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": ["websiteContent"]
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Article Quiz settings</title>
+    <link rel="stylesheet" href="../styles/base.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Article Quiz settings</h1>
+
+      <form id="form">
+        <div class="field">
+          <label for="apiKey">Anthropic API key</label>
+          <div class="row">
+            <input type="password" id="apiKey" autocomplete="off" spellcheck="false" placeholder="sk-ant-…" />
+            <button type="button" class="btn secondary" id="toggleKey">Show</button>
+          </div>
+          <p class="help">
+            Get a key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.
+            The key stays in this browser's extension storage. The extension sends it only to api.anthropic.com.
+          </p>
+        </div>
+
+        <div class="field">
+          <label for="model">Model</label>
+          <input type="text" id="model" list="models" spellcheck="false" />
+          <datalist id="models">
+            <option value="claude-haiku-5-5">Claude Haiku 5.5: fast and cheap (default)</option>
+            <option value="claude-sonnet-5-5">Claude Sonnet 5.5: better questions, slower</option>
+            <option value="claude-opus-5-5">Claude Opus 5.5: best questions, slowest and most expensive</option>
+          </datalist>
+          <p class="help">Choose from the list or type any model ID. Leave it empty to use claude-haiku-5-5.</p>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Save</button>
+          <span id="status" role="status"></span>
+        </div>
+      </form>
+
+      <section class="privacy">
+        <h2>What the extension sends</h2>
+        <p>
+          When you open the quiz, the extension reads the text of the current tab and sends it to the Anthropic API
+          to write the questions. When you check a written answer, it sends the article text and your answer again.
+          It sends nothing anywhere else.
+        </p>
+      </section>
+    </main>
+    <script src="../lib/api.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
